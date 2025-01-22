@@ -1,3 +1,5 @@
+from pathlib import Path 
+
 class Journal : 
     def __init__(self):
         self.entries = []
@@ -31,7 +33,7 @@ if __name__ == '__main__' :
     j.add_entry("I ate a bug.")
     print(f'Journal entries:\n{j}')
 
-    file = 'journal.txt'
+    file = Path(__file__).parent / 'journal.txt'
     PersistenceManager.save_to_file(j, file)
 
     with open(file) as fh:
